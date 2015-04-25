@@ -2,7 +2,7 @@ package org.iit.workshopscrum.plangarde.model;
 
 import java.util.Date;
 import java.util.List;
-
+//j ai une classe selectionnee dans la classe doctor
 public class Doctor {
 
 	private String name;
