@@ -2,7 +2,7 @@ package org.iit.workshopscrum.plangarde.model;
 
 import java.util.Date;
 import java.util.Map;
-
+//classe planninggarde par khouloud
 public class PlanningGarde {
 
 	private Map<Date, Doctor> planning;
