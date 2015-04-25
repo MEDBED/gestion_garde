@@ -8,7 +8,7 @@ import java.util.List;
 //classe doctor
 >>>>>>> d37ab280e934f4412818716b474c86362b7e5e02
 public class Doctor {
-
+//declaration des varriables privé
 	private String name;
 	
 	private List<Date> holidays;
