@@ -2,13 +2,9 @@ package org.iit.workshopscrum.plangarde.model;
 
 import java.util.Date;
 import java.util.List;
-<<<<<<< HEAD
-//j ai une classe selectionnee dans la classe doctor
-=======
-//classe doctor
->>>>>>> d37ab280e934f4412818716b474c86362b7e5e02
+
 public class Doctor {
-//declaration des varriables privé
+//declaration des varriables privï¿½
 	private String name;
 	
 	private List<Date> holidays;
