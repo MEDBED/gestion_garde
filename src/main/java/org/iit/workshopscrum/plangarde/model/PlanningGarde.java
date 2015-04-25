@@ -15,7 +15,7 @@ public class PlanningGarde {
 	public Map<Date, Doctor> getPlanning() {
 		return planning;
 	}
-
+//modification methode set
 	public void setPlanning(Map<Date, Doctor> planning) {
 		this.planning = planning;
 	}
