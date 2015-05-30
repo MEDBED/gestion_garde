@@ -68,4 +68,36 @@ public class Doctor {
     public void addHolidays(String dateBegin, String dateEnd) throws ParseException {
         this.holidays.add(new Holidays(dateBegin, dateEnd));
     }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public String getLastName() {
+        return lastName;
+    }
+
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
+    }
+
+    public int getTelphone() {
+        return telphone;
+    }
+
+    public void setTelphone(int telphone) {
+        this.telphone = telphone;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
 }
