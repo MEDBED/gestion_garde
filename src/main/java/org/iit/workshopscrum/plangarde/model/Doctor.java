@@ -6,7 +6,7 @@ import java.util.List;
 
 public class Doctor {
 
-	//@TODO controle for all entrys in the methods
+	//@TODO controle for all entries in the methods
 
 	private int id;
 	private String name;
