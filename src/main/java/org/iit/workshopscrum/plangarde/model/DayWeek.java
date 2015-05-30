@@ -7,7 +7,7 @@ import java.util.Calendar;
  */
 /**
 * <h1>Add day</h1>
-* The AddNum program implements an application that
+* The  program implements an application that
 * simply add : given integer number.
 * the output on the screen.
 * <p>
