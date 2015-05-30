@@ -1,5 +1,7 @@
 package org.iit.workshopscrum.plangarde.model;
 
+import java.text.ParseException;
+import java.util.Date;
 import java.util.List;
 
 public class Doctor {
@@ -47,5 +49,20 @@ public class Doctor {
 
 	public void setPreferences(List<DayWeek> preferences) {
 		this.preferences = preferences;
+	}
+
+	public void addPreferences(DayWeek dayWeek) {
+		if (this.preferences.contains(dayWeek)) {
+			return;
+		}
+		this.preferences.add(dayWeek);
+	}
+
+	public void addHolidays(Date dateBegin, Date dateEnd) {
+		this.holidays.add(new Holidays(dateBegin, dateEnd));
+	}
+
+	public void addHolidays(String dateBegin, String dateEnd) throws ParseException {
+		this.holidays.add(new Holidays(dateBegin, dateEnd));
 	}
 }
