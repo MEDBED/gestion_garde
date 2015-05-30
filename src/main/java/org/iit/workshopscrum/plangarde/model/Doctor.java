@@ -30,6 +30,14 @@ public class Doctor {
         this.name = name;
     }
 
+    public Doctor(int id, String name, String lastName, int telphone, String email) {
+        this.id = id;
+        this.name = name;
+        this.lastName = lastName;
+        this.telphone = telphone;
+        this.email = email;
+    }
+
     public String getName() {
         return name;
     }
