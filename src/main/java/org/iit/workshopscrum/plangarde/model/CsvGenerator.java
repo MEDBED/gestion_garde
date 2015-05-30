@@ -29,7 +29,7 @@ public class CsvGenerator {
         iterator = plan.keySet().iterator();
         while (iterator.hasNext()) {
             Date date = (Date) iterator.next();
-            Doctor doctor = plan.get(key);
+            Doctor doctor = plan.get(date);
             pw.write(date + "," + doctor.getName() + "\0");
             pw.flush();
         }
