@@ -65,4 +65,23 @@ public class Doctor {
 	public void addHolidays(String dateBegin, String dateEnd) throws ParseException {
 		this.holidays.add(new Holidays(dateBegin, dateEnd));
 	}
+
+	@Override
+	public boolean equals(Object o) {
+		if (this == o) return true;
+		if (o == null || getClass() != o.getClass()) return false;
+
+		Doctor doctor = (Doctor) o;
+
+		if (id != doctor.id) return false;
+		return name.equals(doctor.name);
+
+	}
+
+	@Override
+	public int hashCode() {
+		int result = id;
+		result = 31 * result + name.hashCode();
+		return result;
+	}
 }
