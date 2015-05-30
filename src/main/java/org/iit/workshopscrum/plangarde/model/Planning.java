@@ -2,6 +2,7 @@ package org.iit.workshopscrum.plangarde.model;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.util.Date;
 import java.util.Hashtable;
 import java.util.List;
@@ -71,7 +72,7 @@ public class Planning {
         this.doctors.add(doctor);
     }
 
-    public void addPlanDay(Date day, Doctor doctor) throws Exception {
+    public void addPlanDayUniqueDoctor(Date day, Doctor doctor) throws Exception {
         if (plan.containsKey(day)) {
             throw new Exception("This day is already affected");
         }
@@ -79,5 +80,39 @@ public class Planning {
             throw new Exception("This doctor is already affected");
         }
         this.plan.put(day, doctor);
+    }
+
+    public void affectUniqueDoctor() throws Exception {
+        Calendar calendarMin = Calendar.getInstance();
+        calendarMin.setTime(this.beginPlan);
+        Calendar calendarMax = Calendar.getInstance();
+        calendarMax.setTime(this.endPlan);
+
+        for (; calendarMin.before(calendarMax); calendarMin.add(Calendar.DATE, 1)) {
+            for (int i = 0; i < this.doctors.size(); i++) {
+                if (this.doctors.get(i).getPreferences().contains(calendarMin.get(Calendar.DAY_OF_WEEK))) {
+                    for (int j = 0; j < this.doctors.get(i).getHolidays().size(); j++) {
+                        if (!this.doctors.get(i).getHolidays().get(j).checkDay(calendarMin.getTime())) {
+                            this.addPlanDayUniqueDoctor(calendarMin.getTime(), this.doctors.get(i));
+                        }
+                    }
+                }
+            }
+        }
+
+        for (; calendarMin.before(calendarMax); calendarMin.add(Calendar.DATE, 1)) {
+            for (int i = 0; i < this.doctors.size(); i++) {
+                if (!this.plan.containsKey(calendarMin.getTime())) {
+                    for (int j = 0; j < this.doctors.get(i).getHolidays().size(); j++) {
+                        if (!plan.containsValue(this.doctors.get(i))) {
+                            if (!this.doctors.get(i).getHolidays().get(j).checkDay(calendarMin.getTime())) {
+                                this.addPlanDayUniqueDoctor(calendarMin.getTime(), this.doctors.get(i));
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
     }
 }
