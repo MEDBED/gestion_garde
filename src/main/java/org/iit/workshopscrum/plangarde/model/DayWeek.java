@@ -6,7 +6,7 @@ import java.util.Calendar;
  * Created by Mohamed Chams Eddin Mouedhen & Yahia Elhem on 30/05/2015.
  */
 /**
-* <h1>Add one Number!</h1>
+* <h1>Add day</h1>
 * The AddNum program implements an application that
 * simply add : given integer number.
 * the output on the screen.
