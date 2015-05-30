@@ -1,18 +1,28 @@
 package org.iit.workshopscrum.plangarde.model;
 
-import java.util.Date;
 import java.util.List;
 
 public class Doctor {
-	//declaration des varriables prive
-	private String name;
-	
-	private List<Date> holidays;
 
-	public Doctor(String name, List<Date> holidays) {
+	//@TODO controle for all entrys in the methods
+
+	private int id;
+	private String name;
+	private List<Holidays> holidays;
+	private List<DayWeek> preferences;
+
+	public Doctor(int id, String name, List<Holidays> holidays, List<DayWeek> preferences) {
 		super();
+		this.id = id;
 		this.name = name;
 		this.holidays = holidays;
+		this.preferences = preferences;
+	}
+
+	public Doctor(int id, String name) {
+		super();
+		this.id = id;
+		this.name = name;
 	}
 
 	public String getName() {
@@ -23,12 +33,19 @@ public class Doctor {
 		this.name = name;
 	}
 
-	public List<Date> getHolidays() {
-		return holidays;
+	public List<Holidays> getHolidays() {
+		return this.holidays;
 	}
 
-	public void setHolidays(List<Date> holidays) {
+	public void setHolidays(List<Holidays> holidays) {
 		this.holidays = holidays;
 	}
-	
+
+	public List<DayWeek> getPreferences() {
+		return this.preferences;
+	}
+
+	public void setPreferences(List<DayWeek> preferences) {
+		this.preferences = preferences;
+	}
 }
