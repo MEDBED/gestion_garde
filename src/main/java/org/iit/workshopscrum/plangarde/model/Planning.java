@@ -106,21 +106,24 @@ public class Planning {
 
     public void affectUniqueDoctor() throws Exception {
 
-        int dispoDoctors = 0;
-        int totalDays = 0;
-
         Calendar calendarMin = Calendar.getInstance();
         calendarMin.setTime(this.beginPlan);
         Calendar calendarMax = Calendar.getInstance();
         calendarMax.setTime(this.endPlan);
 
+        if (beginPlan.compareTo(endPlan) >= 0)
+            throw new Exception("The begin date is bigger them end date");
+
+        int dispoDoctors = 0;
+        int totalDays = 0;
+
         for (; calendarMin.before(calendarMax); calendarMin.add(Calendar.DATE, 1)) {
             totalDays++;
-            for (int i = 0; i < this.doctors.size(); i++) {
+            for (Doctor doctor : this.doctors) {
                 if (!this.plan.containsKey(calendarMin.getTime())) {
-                    for (int j = 0; j < this.doctors.get(i).getHolidays().size(); j++) {
-                        if (!plan.containsValue(this.doctors.get(i))) {
-                            if (!this.doctors.get(i).getHolidays().get(j).checkDay(calendarMin.getTime())) {
+                    for (int j = 0; j < doctor.getHolidays().size(); j++) {
+                        if (!plan.containsValue(doctor)) {
+                            if (!doctor.getHolidays().get(j).checkDay(calendarMin.getTime())) {
                                 dispoDoctors++;
                             }
                         }
@@ -133,11 +136,11 @@ public class Planning {
             throw new Exception("Available doctors are less them number of days to affect");
 
         for (; calendarMin.before(calendarMax); calendarMin.add(Calendar.DATE, 1)) {
-            for (int i = 0; i < this.doctors.size(); i++) {
-                if (this.doctors.get(i).getPreferences().contains(calendarMin.get(Calendar.DAY_OF_WEEK))) {
-                    for (int j = 0; j < this.doctors.get(i).getHolidays().size(); j++) {
-                        if (!this.doctors.get(i).getHolidays().get(j).checkDay(calendarMin.getTime())) {
-                            this.addPlanDayUniqueDoctor(calendarMin.getTime(), this.doctors.get(i));
+            for (Doctor doctor : this.doctors) {
+                if (doctor.getPreferences().contains(calendarMin.get(Calendar.DAY_OF_WEEK))) {
+                    for (int j = 0; j < doctor.getHolidays().size(); j++) {
+                        if (!doctor.getHolidays().get(j).checkDay(calendarMin.getTime())) {
+                            this.addPlanDayUniqueDoctor(calendarMin.getTime(), doctor);
                         }
                     }
                 }
@@ -145,12 +148,12 @@ public class Planning {
         }
 
         for (; calendarMin.before(calendarMax); calendarMin.add(Calendar.DATE, 1)) {
-            for (int i = 0; i < this.doctors.size(); i++) {
+            for (Doctor doctor : this.doctors) {
                 if (!this.plan.containsKey(calendarMin.getTime())) {
-                    for (int j = 0; j < this.doctors.get(i).getHolidays().size(); j++) {
-                        if (!plan.containsValue(this.doctors.get(i))) {
-                            if (!this.doctors.get(i).getHolidays().get(j).checkDay(calendarMin.getTime())) {
-                                this.addPlanDayUniqueDoctor(calendarMin.getTime(), this.doctors.get(i));
+                    for (int j = 0; j < doctor.getHolidays().size(); j++) {
+                        if (!plan.containsValue(doctor)) {
+                            if (!doctor.getHolidays().get(j).checkDay(calendarMin.getTime())) {
+                                this.addPlanDayUniqueDoctor(calendarMin.getTime(), doctor);
                             }
                         }
                     }
