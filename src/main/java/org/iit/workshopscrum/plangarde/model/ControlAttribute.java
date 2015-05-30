@@ -9,6 +9,12 @@ public class ControlAttribute {
         return stringToControl.matches("\\p{Alpha}*");
     }
 
-    public static boolean isNumeric(String in)
+    public static boolean isNumeric(String intToControl) {
+        return intToControl.matches("\\p{Digit}*");
+    }
+
+    public static boolean isEmail(String emailToControl) {
+        return emailToControl.matches("\\p{Alnum}*@\\p{Alnum}*.\\p{Alpha}");
+    }
 
 }
