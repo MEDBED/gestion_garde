@@ -12,7 +12,7 @@ import java.util.Date;
 /**
 * <h1>Add day</h1>
 * The AddNum program implements an application that
-* simply add : given integer number.
+* simply add : given date.
 * the output on the screen.
 * <p>
 * <b>Note:</b> Giving proper comments in your program makes it more
