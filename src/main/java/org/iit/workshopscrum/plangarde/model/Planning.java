@@ -33,6 +33,7 @@ public class Planning {
 	   * @param endplan   :type date
 	   
 	   */
+    //Chams
     private List<Doctor> doctors;
     private Date beginPlan;
     private Date endPlan;
