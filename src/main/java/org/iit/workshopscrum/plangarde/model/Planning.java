@@ -33,7 +33,7 @@ public class Planning {
 	   * @param endplan   :type date
 	   
 	   */
-    //Chams
+
     private List<Doctor> doctors;
     private Date beginPlan;
     private Date endPlan;
@@ -105,10 +105,32 @@ public class Planning {
     }
 
     public void affectUniqueDoctor() throws Exception {
+
+        int dispoDoctors = 0;
+        int totalDays = 0;
+
         Calendar calendarMin = Calendar.getInstance();
         calendarMin.setTime(this.beginPlan);
         Calendar calendarMax = Calendar.getInstance();
         calendarMax.setTime(this.endPlan);
+
+        for (; calendarMin.before(calendarMax); calendarMin.add(Calendar.DATE, 1)) {
+            totalDays++;
+            for (int i = 0; i < this.doctors.size(); i++) {
+                if (!this.plan.containsKey(calendarMin.getTime())) {
+                    for (int j = 0; j < this.doctors.get(i).getHolidays().size(); j++) {
+                        if (!plan.containsValue(this.doctors.get(i))) {
+                            if (!this.doctors.get(i).getHolidays().get(j).checkDay(calendarMin.getTime())) {
+                                dispoDoctors++;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        if (dispoDoctors < totalDays)
+            throw new Exception("Available doctors are less them number of days to affect");
 
         for (; calendarMin.before(calendarMax); calendarMin.add(Calendar.DATE, 1)) {
             for (int i = 0; i < this.doctors.size(); i++) {
