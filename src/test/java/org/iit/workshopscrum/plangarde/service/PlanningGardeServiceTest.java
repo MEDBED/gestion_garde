@@ -33,7 +33,7 @@ public class PlanningGardeServiceTest {
 		
 		// Inpputs
 		List<Doctor> doctors = new ArrayList<Doctor>();
-		doctors.add(new Doctor("Mohamed", null));
+		doctors.add(new Doctor(1,"Mohamed"));
 		Date startDate = new Date();
 		Date endDate = new Date();
 
