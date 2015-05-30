@@ -24,7 +24,7 @@ public enum DayWeek {
 	   * This method is used to add int (day). This is
 	   * a the simplest form of a class method, just to
 	   * show the usage of various javadoc Tags.
-	   * @param dayWeek 
+	   * @param day (monday,tuesday,.....)
 	   * @return int of day.
 	   */
 
