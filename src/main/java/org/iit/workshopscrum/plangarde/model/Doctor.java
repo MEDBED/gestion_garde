@@ -4,7 +4,7 @@ import java.util.Date;
 import java.util.List;
 
 public class Doctor {
-//declaration des varriables priv�
+	//declaration des varriables prive
 	private String name;
 	
 	private List<Date> holidays;
