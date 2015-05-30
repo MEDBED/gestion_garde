@@ -10,6 +10,9 @@ public class Doctor {
 
     private int id;
     private String name;
+    private String lastName;
+    private int telphone;
+    private String email;
     private List<Holidays> holidays;
     private List<DayWeek> preferences;
 
