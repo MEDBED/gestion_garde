@@ -56,10 +56,10 @@ public class Holidays {
 
         for (; calendarMin.before(calendarMax); calendarMin.add(Calendar.DATE, 1)) {
             if (day.compareTo(calendarMin.getTime()) == 0) {
-                return true;
+                return false;
             }
         }
-        return false;
+        return true;
     }
 
 }
